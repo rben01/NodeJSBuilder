@@ -3,8 +3,8 @@ using Pkg.BinaryPlatforms
 using URIParser, FilePaths
 
 pkgname = "NodeJS"
-version = v"12.22.1"
-build = 2
+version = v"17.7.2"
+build = 1
 
 build_path = joinpath(@__DIR__, "build")
 
@@ -98,6 +98,6 @@ mktempdir() do temp_path
 
         download_hash = archive_artifact(product_hash, joinpath(build_path, archive_filename))
 
-        bind_artifact!(artifact_toml, "nodejs_app", product_hash, platform=platform, force=true, download_info=Tuple[("https://github.com/davidanthoff/NodeJSBuilder/releases/download/v$(URIParser.escape(string(version) * "+" * string(build)))/$archive_filename", download_hash)])
+        bind_artifact!(artifact_toml, "nodejs_app", product_hash, platform=platform, force=true, download_info=Tuple[("https://github.com/rben01/NodeJSBuilder/releases/download/v$(URIParser.escape(string(version) * "+" * string(build)))/$archive_filename", download_hash)])
     end
 end
